@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding of Vanny & Calvin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #d4af37;
+      --bg-dark: #0f1115;
+      --bg-card: #181c24;
+      --text-light: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Mobile Container Wrapper */
+    .mobile-container {
+      width: 100%;
+      max-width: 480px;
+      background: var(--bg-dark);
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* Cover / Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(180deg, rgba(15,17,21,0.6) 0%, rgba(15,17,21,0.95) 100%),
+                  url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80') center/cover;
+    }
+
+    .hero h3 {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 3px;
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+    }
+
+    .btn-open {
+      background: linear-gradient(45deg, #d4af37, #f3e5ab);
+      color: #111;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-open:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Main Content */
+    .content-section {
+      padding: 40px 25px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .quote-box {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      background: var(--bg-card);
+      padding: 20px;
+      border-radius: 12px;
+      border-left: 3px solid var(--primary);
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    /* Couple Detail */
+    .couple-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: #fff;
+      margin: 10px 0 5px;
+    }
+
+    .parents {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .ampersand {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin: 15px 0;
+    }
+
+    /* Event Card */
+    .event-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 25px 20px;
+      margin-top: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .event-type {
+      font-family: 'Cinzel', serif;
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .event-detail {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    /* Countdown Timer */
+    .timer-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .time-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(212,175,55,0.3);
+      padding: 12px;
+      border-radius: 10px;
+      min-width: 65px;
+    }
+
+    .time-box span {
+      display: block;
+    }
+
+    .time-number {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .time-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Map Button */
+    .btn-map {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: 0.3s;
+    }
+
+    .btn-map:hover {
+      background: var(--primary);
+      color: #111;
+    }
+
+    /* Digital Music Control Floating Button */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      background: var(--primary);
+      color: #111;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      z-index: 100;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mobile-container">
+    <!-- Hero / Cover Section -->
+    <section class="hero" id="hero">
+      <h3>THE WEDDING OF</h3>
+      <h1>Vanny & Calvin</h1>
+      <p>Sabtu, 21 Oktober 2028</p>
+      <button class="btn-open" onclick="openInvitation()">Buka Undangan</button>
+    </section>
+
+    <!-- Main Content (Hidden Initially) -->
+    <div id="main-content" style="display: none;">
+      
+      <!-- Verse Section -->
+      <section class="content-section">
+        <div class="quote-box">
+          "Demikianlah mereka bukan lagi dua, melainkan satu. Karena itu, apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia."
+          <br><br><strong>— Matius 19:6</strong>
+        </div>
+      </section>
+
+      <!-- Couple Info Section -->
+      <section class="content-section">
+        <h2 class="section-title">Mempelai</h2>
+        
+        <div>
+          <h3 class="couple-name">Vanny</h3>
+          <p class="parents">Putri dari Bapak & Ibu</p>
+        </div>
+
+        <div class="ampersand">&</div>
+
+        <div>
+          <h3 class="couple-name">Calvin</h3>
+          <p class="parents">Putra dari Bapak & Ibu</p>
+        </div>
+      </section>
+
+      <!-- Event Detail Section -->
+      <section class="content-section">
+        <h2 class="section-title">Rangkaian Acara</h2>
+
+        <!-- Countdown -->
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Menuju Hari Bahagia:</p>
+        <div class="timer-container">
+          <div class="time-box">
+            <span class="time-number" id="days">00</span>
+            <span class="time-label">Hari</span>
+          </div>
+          <div class="time-box">
+            <span class="time-number" id="hours">00</span>
+            <span class="time-label">Jam</span>
+          </div>
+          <div class="time-box">
+            <span class="time-number" id="minutes">00</span>
+            <span class="time-label">Menit</span>
+          </div>
+          <div class="time-box">
+            <span class="time-number" id="seconds">00</span>
+            <span class="time-label">Detik</span>
+          </div>
+        </div>
+
+        <!-- Pemberkatan -->
+        <div class="event-card">
+          <div class="event-type">Pemberkatan Nikah</div>
+          <p class="event-detail">📅 Sabtu, 21 Oktober 2028</p>
+          <p class="event-detail">⏰ 10.00 WIB - Selesai</p>
+          <p class="event-detail">📍 Gereja / Venue Utama</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-map">Lihat Lokasi Maps</a>
+        </div>
+
+        <!-- Resepsi -->
+        <div class="event-card">
+          <div class="event-type">Resepsi Pernikahan</div>
+          <p class="event-detail">📅 Sabtu, 21 Oktober 2028</p>
+          <p class="event-detail">⏰ 18.30 WIB - Selesai</p>
+          <p class="event-detail">📍 Grand Ballroom / Venue Resepsi</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-map">Lihat Lokasi Maps</a>
+        </div>
+      </section>
+
+      <!-- Footer / Terima Kasih -->
+      <section class="content-section">
+        <p style="font-size: 0.85rem; color: var(--text-muted);">
+          Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+        </p>
+        <h3 class="couple-name" style="margin-top: 20px; font-size: 1.4rem;">Vanny & Calvin</h3>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Music Floating Controller -->
+  <div class="music-btn" onclick="toggleMusic()" id="musicBtn" style="display: none;">🎵</div>
+
+  <!-- Audio Element -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Countdown Timer Script
+    const targetDate = new Date("October 21, 2028 10:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+        document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // Open Invitation Functionality
+    const bgMusic = document.getElementById("bgMusic");
+    let isPlaying = false;
+
+    function openInvitation() {
+      document.getElementById("hero").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+      document.getElementById("musicBtn").style.display = "flex";
+      
+      // Play Audio
+      bgMusic.play();
+      isPlaying = true;
+    }
+
+    function toggleMusic() {
+      if (isPlaying) {
+        bgMusic.pause();
+        document.getElementById("musicBtn").innerText = "🔇";
+      } else {
+        bgMusic.play();
+        document.getElementById("musicBtn").innerText = "🎵";
+      }
+      isPlaying = !isPlaying;
+    }
+  </script>
+</body>
+</html>
